@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { ChatManager, TokenProvider } from '@pusher/chatkit'
+
 export default {
   data () {
     return {
