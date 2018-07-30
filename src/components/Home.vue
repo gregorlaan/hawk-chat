@@ -1,6 +1,12 @@
 <template>
   <div>
     <h1>Hawk Chat</h1>
+    <ul>
+      <li v-for="message in messages" :key="message.id">
+        <p>{{ message.senderId }}</p>
+        <p>{{ message.text }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -9,7 +15,10 @@ import { ChatManager, TokenProvider } from '@pusher/chatkit'
 
 export default {
   data () {
-    return {}
+    return {
+      messages: [],
+      roomId: 12724024
+    }
   },
   methods: {
     onLoad: function () {
@@ -23,9 +32,24 @@ export default {
       chatManager.connect()
         .then(currentUser => {
           console.log('Successful connection', currentUser)
+          this.getMessages(currentUser)
         })
         .catch(err => {
           console.log('Error on connection', err)
+        })
+    },
+    getMessages: function (user) {
+      user.fetchMessages({
+        roomId: this.roomId,
+        direction: 'older',
+        limit: 10
+      })
+        .then(messages => {
+          console.log(messages)
+          this.messages = messages
+        })
+        .catch(err => {
+          console.log(`Error fetching messages: ${err}`)
         })
     }
   },
