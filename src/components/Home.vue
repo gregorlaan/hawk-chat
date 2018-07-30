@@ -2,9 +2,9 @@
   <div>
     <h1>Hawk Chat</h1>
     <ul id="messages">
-      <li v-for="message in messages" :key="message.id">
-        <p>{{ message.senderId }}</p>
-        <p>{{ message.text }}</p>
+      <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
+        <p class="details" v-if="messageDetails === message.id">{{ message.senderId }}</p>
+        <p class="text">{{ message.text }}</p>
       </li>
     </ul>
     <form @submit="submit($event)">
@@ -23,6 +23,7 @@ export default {
     return {
       messages: [],
       newMessage: '',
+      messageDetails: false,
       roomId: 12724024,
       currentUserId: 'gregor.laan'
     }
@@ -82,6 +83,13 @@ export default {
           }
         }
       })
+    },
+    messageDetailsToggle: function (id) {
+      if (!this.messageDetails) {
+        this.messageDetails = id
+      } else if (this.messageDetails) {
+        this.messageDetails = false
+      }
     }
   },
   mounted: function () {
