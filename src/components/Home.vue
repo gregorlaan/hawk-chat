@@ -56,6 +56,7 @@ export default {
         text: this.newMessage,
         roomId: this.roomId
       })
+      this.newMessage = ''
     },
     getMessages: function (user) {
       user.fetchMessages({
