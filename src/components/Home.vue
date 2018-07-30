@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Hawk Chat</h1>
-    <ul>
+    <ul id="messages">
       <li v-for="message in messages" :key="message.id">
         <p>{{ message.senderId }}</p>
         <p>{{ message.text }}</p>
@@ -89,4 +89,8 @@ export default {
 </script>
 
 <style scoped>
+ul#messages {
+  list-style: none;
+  padding: 0;
+}
 </style>
