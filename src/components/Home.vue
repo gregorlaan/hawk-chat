@@ -102,9 +102,6 @@ export default {
 ul#messages {
   list-style: none;
   padding: 0;
-  width: 300px;
-  margin: 0 auto;
-  background: linear-gradient(top, #7A5FFF 0%,rgba(37,141,200,1) 50%, #01d0ff 100%);
   overflow-y: scroll;
 }
 
