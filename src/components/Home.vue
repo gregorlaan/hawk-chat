@@ -17,6 +17,7 @@ export default {
   data () {
     return {
       messages: [],
+      newMessage: '',
       roomId: 12724024
     }
   },
@@ -32,6 +33,7 @@ export default {
       chatManager.connect()
         .then(currentUser => {
           console.log('Successful connection', currentUser)
+          this.connectToRoom(currentUser)
           this.getMessages(currentUser)
         })
         .catch(err => {
@@ -51,6 +53,17 @@ export default {
         .catch(err => {
           console.log(`Error fetching messages: ${err}`)
         })
+    },
+    connectToRoom: function (user) {
+      user.subscribeToRoom({
+        roomId: this.roomId,
+        hooks: {
+          onNewMessage: message => {
+            console.log(`Received new message: ${message.text}`)
+            this.messages.push(message)
+          }
+        }
+      })
     }
   },
   mounted: function () {
