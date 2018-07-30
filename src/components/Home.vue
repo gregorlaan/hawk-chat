@@ -23,7 +23,8 @@ export default {
     return {
       messages: [],
       newMessage: '',
-      roomId: 12724024
+      roomId: 12724024,
+      currentUserId: 'gregor.laan'
     }
   },
   methods: {
@@ -31,7 +32,7 @@ export default {
       console.log('App loaded.')
       const chatManager = new ChatManager({
         instanceLocator: 'v1:us1:811af568-f6dc-4eb4-bed1-c842ac6cdb78',
-        userId: 'gregor.laan',
+        userId: this.currentUserId,
         tokenProvider: new TokenProvider({ url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/811af568-f6dc-4eb4-bed1-c842ac6cdb78/token' })
       })
 
