@@ -15,6 +15,10 @@ html, body {
   margin: 0;
 }
 
+html, body, #app {
+  height: 100%;
+}
+
 #app {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
