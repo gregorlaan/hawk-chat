@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Hawk Chat</h1>
+    <h1 class="title">Hawk Chat</h1>
     <ul id="messages">
       <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
         <p class="details" v-if="messageDetails === message.id">{{ message.senderId }}</p>
         <p class="text">{{ message.text }}</p>
       </li>
     </ul>
-    <form id="send-message-area" @submit="submit($event)">
+    <form id="send-message-area" @submit="submit($event)" autocomplete="off">
       <input placeholder="Send message" v-model="newMessage" type="text" name="newMessage" id="newMessage">
       <input id="send" value="" v-if="newMessage" type="submit">
     </form>
@@ -100,8 +100,9 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h1.title {
   color: white;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 ul#messages {
@@ -111,42 +112,52 @@ ul#messages {
 
 #send-message-area {
   position: relative;
-  margin: 10px
+  background: rgba(255, 255, 255, 0.3);
 }
 
 input#newMessage {
   border: 0;
   box-sizing: border-box;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   width: 100%;
-  border-radius: 25px;
-  padding: 5px 10px;
+  padding: 20px;
   font-size: 16px;
+  background: transparent;
+  color: white;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+input#newMessage::placeholder {
+  color: white;
+}
+
+input#newMessage:focus {
+  outline: 0;
 }
 
 #send {
   border: 0;
   position: absolute;
-  right: 0;
+  right: 5px;
   background: 0;
   top: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  width: 25px;
+  width: 50px;
   background-size: 15px;
   background-image: url(../assets/send-icon.svg);
   cursor: pointer;
+  background-position: 50%;
 }
 
 ul#messages > li {
   background: white;
-  margin: 10px;
+  margin: 20px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 25px;
 }
 
 ul#messages > li > p {
   margin: 0;
-  padding: 5px 10px;
+  padding: 10px;
 }
 </style>
