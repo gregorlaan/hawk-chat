@@ -7,10 +7,9 @@
         <p class="text">{{ message.text }}</p>
       </li>
     </ul>
-    <form @submit="submit($event)">
-      <input v-model="newMessage" type="text" name="newMessage" id="newMessage2">
-      <input v-if="newMessage" type="submit">
-      <input v-if="newMessage" type="reset">
+    <form id="send-message-area" @submit="submit($event)">
+      <input placeholder="Send message" v-model="newMessage" type="text" name="newMessage" id="newMessage">
+      <input id="send" value="" v-if="newMessage" type="submit">
     </form>
   </div>
 </template>
@@ -99,21 +98,53 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  color: white;
+}
+
 ul#messages {
   list-style: none;
   padding: 0;
-  overflow-y: scroll;
+}
+
+#send-message-area {
+  position: relative;
+  margin: 10px
+}
+
+input#newMessage {
+  border: 0;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  width: 100%;
+  border-radius: 25px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+#send {
+  border: 0;
+  position: absolute;
+  right: 0;
+  background: 0;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  width: 25px;
+  background-size: 15px;
+  background-image: url(../assets/send-icon.svg);
+  cursor: pointer;
 }
 
 ul#messages > li {
   background: white;
   margin: 10px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
+  border-radius: 25px;
 }
 
 ul#messages > li > p {
   margin: 0;
-  padding: 5px;
+  padding: 5px 10px;
 }
 </style>

@@ -18,8 +18,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background: linear-gradient(top, #7A5FFF 0%,rgba(37,141,200,1) 50%, #01d0ff 100%);
+  background: linear-gradient(top, #7A5FFF 0%, #2083f3 50%, #01d0ff 100%);
   width: 300px;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 </style>
