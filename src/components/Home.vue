@@ -86,6 +86,8 @@ export default {
     messageDetailsToggle: function (id) {
       if (!this.messageDetails) {
         this.messageDetails = id
+      } else if (this.messageDetails && this.messageDetails !== id) {
+        this.messageDetails = id
       } else if (this.messageDetails) {
         this.messageDetails = false
       }
