@@ -7,6 +7,11 @@
         <p>{{ message.text }}</p>
       </li>
     </ul>
+    <form @submit="submit($event)">
+      <input v-model="newMessage" type="text" name="newMessage" id="newMessage2">
+      <input v-if="newMessage" type="submit">
+      <input v-if="newMessage" type="reset">
+    </form>
   </div>
 </template>
 
@@ -35,10 +40,21 @@ export default {
           console.log('Successful connection', currentUser)
           this.connectToRoom(currentUser)
           this.getMessages(currentUser)
+          this.submit = function (e) {
+            this.sendMessage(e, currentUser)
+          }
         })
         .catch(err => {
           console.log('Error on connection', err)
         })
+    },
+    sendMessage: function (e, user) {
+      e.preventDefault()
+      console.log('New Message: ' + this.newMessage)
+      user.sendMessage({
+        text: this.newMessage,
+        roomId: this.roomId
+      })
     },
     getMessages: function (user) {
       user.fetchMessages({
