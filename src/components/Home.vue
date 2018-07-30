@@ -109,5 +109,6 @@ ul#messages > li {
 
 ul#messages > li > p {
   margin: 0;
+  padding: 5px;
 }
 </style>
