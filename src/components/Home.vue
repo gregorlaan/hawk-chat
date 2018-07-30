@@ -108,11 +108,16 @@ h1.title {
 ul#messages {
   list-style: none;
   padding: 0;
+  height: 100%;
+  margin-bottom: 70px;
 }
 
 #send-message-area {
-  position: relative;
-  background: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  background: rgba(115, 219, 253, 0.9);
+  bottom: 0;
+  width: inherit;
+  max-width: inherit;
 }
 
 input#newMessage {

@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style>
+html, body {
+  margin: 0;
+}
+
 #app {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
@@ -22,5 +26,10 @@ export default {
   width: 300px;
   margin: 0 auto;
   overflow-y: scroll;
+}
+
+#app > div {
+  max-width: 300px;
+  width: 100%;
 }
 </style>
