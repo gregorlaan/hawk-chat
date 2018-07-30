@@ -94,5 +94,20 @@ export default {
 ul#messages {
   list-style: none;
   padding: 0;
+  width: 300px;
+  margin: 0 auto;
+  background: linear-gradient(top, #7A5FFF 0%,rgba(37,141,200,1) 50%, #01d0ff 100%);
+  overflow-y: scroll;
+}
+
+ul#messages > li {
+  background: white;
+  margin: 10px;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+ul#messages > li > p {
+  margin: 0;
 }
 </style>
