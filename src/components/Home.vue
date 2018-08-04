@@ -5,6 +5,9 @@
       <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
         <p class="details" v-if="messageDetails === message.id">{{ message.senderId }}</p>
         <p class="text">{{ message.text }}</p>
+        <div class="name-tag">
+          <p>{{ message.senderId[0] }}</p>
+        </div>
       </li>
     </ul>
     <form id="send-message-area" @submit="submit($event)" autocomplete="off">
@@ -154,16 +157,45 @@ input#newMessage:focus {
   background-position: 50%;
 }
 
+ul#messages > li {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 ul#messages > li > p.text {
+  flex: 1;
+  display: flex;
   background: white;
-  margin: 0 20px 20px;
+  margin: 0 10px 20px 20px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 25px;
 }
 
 ul#messages > li > p.details {
+  display: block;
+  width: 100%;
+  margin-right: 50px;
   color: white;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+ul#messages > li > .name-tag {
+  text-transform: capitalize;
+  flex: 0 0 40px;
+  margin-right: 20px;
+  background: white;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+ul#messages > li > .name-tag > p {
+  margin: 0;
+  font-weight: bold;
 }
 
 ul#messages > li > p {
