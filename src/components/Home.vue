@@ -160,13 +160,13 @@ input#newMessage:focus {
 ul#messages > li {
   display: flex;
   flex-wrap: wrap;
+  margin: 20px;
 }
 
 ul#messages > li > p.text {
   flex: 1;
   display: flex;
   background: white;
-  margin: 0 10px 20px 20px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 25px;
 }
@@ -182,11 +182,7 @@ ul#messages > li > p.details {
 ul#messages > li > .name-tag {
   text-transform: capitalize;
   flex: 0 0 40px;
-  margin-right: 20px;
-  background: white;
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
-  height: 40px;
-  border-radius: 100%;
+  margin-left: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -196,6 +192,12 @@ ul#messages > li > .name-tag {
 ul#messages > li > .name-tag > p {
   margin: 0;
   font-weight: bold;
+  background: white;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 100%;
+  width: 40px;
+  border-radius: 100%;
+  padding: 10px 0;
 }
 
 ul#messages > li > p {
