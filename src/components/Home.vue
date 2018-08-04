@@ -154,11 +154,16 @@ input#newMessage:focus {
   background-position: 50%;
 }
 
-ul#messages > li {
+ul#messages > li > p.text {
   background: white;
-  margin: 20px;
+  margin: 0 20px 20px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 25px;
+}
+
+ul#messages > li > p.details {
+  color: white;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 ul#messages > li > p {
