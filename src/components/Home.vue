@@ -112,11 +112,10 @@ ul#messages {
   list-style: none;
   padding: 0;
   height: 100%;
-  margin-bottom: 70px;
 }
 
 #send-message-area {
-  position: fixed;
+  position: sticky;
   background: rgba(115, 219, 253, 0.9);
   bottom: 0;
   width: inherit;
