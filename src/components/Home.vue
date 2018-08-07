@@ -5,7 +5,7 @@
       <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
         <p class="details" v-if="messageDetails === message.id">{{ message.senderId }}</p>
         <p class="text">{{ message.text }}</p>
-        <div class="name-tag">
+        <div class="name-tag" :class="{ 'current-user': message.senderId === currentUserId}">
           <p>{{ message.senderId[0] }}</p>
         </div>
       </li>
@@ -168,12 +168,12 @@ ul#messages > li > p.text {
   background: white;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
   border-radius: 25px;
+  order: 1;
 }
 
 ul#messages > li > p.details {
   display: block;
   width: 100%;
-  margin-right: 50px;
   color: white;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
@@ -181,11 +181,18 @@ ul#messages > li > p.details {
 ul#messages > li > .name-tag {
   text-transform: capitalize;
   flex: 0 0 40px;
-  margin-left: 10px;
+  margin-right: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
+  order: 0;
+}
+
+ul#messages > li > .name-tag.current-user {
+  order: 1;
+  margin-left: 10px;
+  margin-right: 0;
 }
 
 ul#messages > li > .name-tag > p {
