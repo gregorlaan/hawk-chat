@@ -3,7 +3,7 @@
     <h1 class="title">Hawk Chat</h1>
     <ul id="messages">
       <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
-        <p class="details" v-if="messageDetails === message.id">{{ message.senderId }}</p>
+        <p class="details" v-if="messageDetails === message.id">{{ message.senderId }} <span>&bull;</span> {{ getUserPresence(message) }}</p>
         <p class="text">{{ message.text }}</p>
         <div class="name-tag" :class="{ 'current-user': message.senderId === currentUserId}">
           <p>{{ message.senderId[0] }}</p>
@@ -85,6 +85,9 @@ export default {
           }
         }
       })
+    },
+    getUserPresence: function (message) {
+      return message.userStore.presenceStore.store[message.senderId].state
     },
     messageDetailsToggle: function (id) {
       if (!this.messageDetails) {
