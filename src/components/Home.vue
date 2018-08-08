@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="title">Hawk Chat</h1>
     <ul id="messages">
       <li class="message" v-for="message in messages" :key="message.id" @click="messageDetailsToggle(message.id)">
         <p class="details" v-if="messageDetails === message.id">{{ message.senderId }} <span>&bull;</span> {{ getUserPresence(message) }}</p>
